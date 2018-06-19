@@ -1,0 +1,21 @@
+{
+  "id": "/mining/cuda-t-rx",
+  "cmd": "/root/t-rex -a lyra2z -o stratum+tcp://pool.bsod.pw:2142 -u iMjR82P4zj34FYu9ohm5jXTbbqJcdUer4L.t-rex-catch-all -p c=IFX,t-rex-catch-all",
+  "cpus": 0.1,
+  "gpus": 1,
+  "mem": 128,
+  "disk": 5000,
+  "ports": [ 0 ],
+  "instances": 1,
+  "container": {
+    "type": "MESOS",
+    "docker": {
+      "image": "acecile/cuda-t-rex:latest",
+      "forcePullImage": true
+    }
+  },
+  "upgradeStrategy": {
+    "maximumOverCapacity": 0,
+    "minimumHealthCapacity": 0
+   }
+}
