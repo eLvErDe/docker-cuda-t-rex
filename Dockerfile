@@ -30,7 +30,7 @@ RUN megadl ${MEGANZ_URL} --path - | bsdtar -xvf- --include='t-rex' -O > /root/t-
 RUN mkdir /root/src \
     && wget http://deb.debian.org/debian/pool/main/o/openssl/libssl1.0.0_1.0.1t-1+deb8u8_amd64.deb -O /root/src/libssl.deb \
     && dpkg --fsys-tarfile /root/src/libssl.deb \
-       | tar xv --directory=/root --strip-components=4 ./usr/lib/x86_64-linux-gnu/libcrypto.so.1.0.0 \
+       | tar xv --directory=/root --strip-components=4 ./usr/lib/x86_64-linux-gnu/libcrypto.so.1.0.0 ./usr/lib/x86_64-linux-gnu/libssl.so.1.0.0 \
     && rm -rf /root/src/
 
 # nvidia-container-runtime @ https://gitlab.com/nvidia/cuda/blob/ubuntu16.04/8.0/runtime/Dockerfile
