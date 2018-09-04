@@ -23,7 +23,7 @@ RUN echo 'deb http://deb.debian.org/debian stretch-backports non-free' >> /etc/a
     && rm -rf /var/lib/apt/lists/*
 
 # Install binary
-RUN megadl ${MEGANZ_URL} --path - | bsdtar -xvf- -O > /root/t-rex \
+RUN megadl ${MEGANZ_URL} --path - | bsdtar -xvf- --include='t-rex' -O > /root/t-rex \
     && chmod 0755 /root/ && chmod 0755 /root/t-rex
 
 # This version is dynamically linked to libcrypto.so.1.0.0 so we'll get those files from Debian Jessie
