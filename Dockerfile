@@ -5,7 +5,9 @@ MAINTAINER Adam Cecile <acecile@le-vert.net>
 ENV TERM xterm
 ENV HOSTNAME t-rex.local
 ENV DEBIAN_FRONTEND=noninteractive
-ENV MEGANZ_URL https://mega.nz/#!rJdUyYaT!yRcavSQwrHcFXH9df1anLfzirBmwqZNFNYuBItjS0gc
+# 0.6.6 / CUDA 9.1
+# https://mega.nz/#!XMlS0CYL!ruvZvVnoRC3gTArZyzzYF-t6B-XH0UnDCN6hV227Ya4
+ENV MEGANZ_URL https://mega.nz/#!XMlS0CYL!ruvZvVnoRC3gTArZyzzYF-t6B-XH0UnDCN6hV227Ya4
 
 WORKDIR /root
 
