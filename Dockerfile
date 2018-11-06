@@ -5,9 +5,8 @@ MAINTAINER Adam Cecile <acecile@le-vert.net>
 ENV TERM xterm
 ENV HOSTNAME t-rex.local
 ENV DEBIAN_FRONTEND=noninteractive
-# 0.6.6 / CUDA 9.1
-# https://mega.nz/#!XMlS0CYL!ruvZvVnoRC3gTArZyzzYF-t6B-XH0UnDCN6hV227Ya4
-ENV MEGANZ_URL https://mega.nz/#!XMlS0CYL!ruvZvVnoRC3gTArZyzzYF-t6B-XH0UnDCN6hV227Ya4
+# 0.7.3 / CUDA 9.1
+ENV URL https://github.com/trexminer/T-Rex/releases/download/0.7.3/t-rex-0.7.3-linux-cuda9.1.tar.gz
 
 WORKDIR /root
 
@@ -21,11 +20,11 @@ RUN apt update \
 RUN echo 'deb http://deb.debian.org/debian stretch-backports non-free' >> /etc/apt/sources.list \
     && apt update \
     && apt -y -o 'Dpkg::Options::=--force-confdef' -o 'Dpkg::Options::=--force-confold' --no-install-recommends install \
-    megatools bsdtar libcurl3 libjansson4 libcudart9.1 wget ca-certificates \
+    bsdtar libcurl3 libjansson4 libcudart9.1 wget ca-certificates \
     && rm -rf /var/lib/apt/lists/*
 
 # Install binary
-RUN megadl ${MEGANZ_URL} --path - | bsdtar -xvf- --include='t-rex' -O > /root/t-rex \
+RUN wget ${URL} -O- | bsdtar -xvf- --include='t-rex' -O > /root/t-rex \
     && chmod 0755 /root/ && chmod 0755 /root/t-rex
 
 # This version is dynamically linked to libcrypto.so.1.0.0 so we'll get those files from Debian Jessie
