@@ -5,8 +5,9 @@ MAINTAINER Adam Cecile <acecile@le-vert.net>
 ENV TERM xterm
 ENV HOSTNAME t-rex.local
 ENV DEBIAN_FRONTEND=noninteractive
-# 0.7.3 / CUDA 9.1
-ENV URL https://github.com/trexminer/T-Rex/releases/download/0.7.3/t-rex-0.7.3-linux-cuda9.1.tar.gz
+ENV VERSION 0.7.4
+ENV CUDA_VERSION 9.1
+ENV URL https://github.com/trexminer/T-Rex/releases/download/${VERSION}/t-rex-${VERSION}-linux-cuda${CUDA_VERSION}.tar.gz
 
 WORKDIR /root
 
